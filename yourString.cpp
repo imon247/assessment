@@ -103,13 +103,22 @@ bool String::operator <= (const String& o) const {
     return false;
 }
 
-char& String::operator[] (const int i) const {
+char& String::operator[] (const int i) {
     // if(i<0 || i>=(int)_len) return 0;
+    return _str[i];
+}
+
+char String::operator[] (const int i) const {
+    if(i<0 || i>=(int)_len) return 0;
     return _str[i];
 }
 
 String::operator const char* () const {
     return _str;
+}
+
+String String::operator()(char * s) const {
+    return String(s);
 }
 
 String String::operator() (int start, int length) const {
@@ -126,4 +135,8 @@ String String::operator() (int start, int length) const {
     substring = buffer;
     delete[] buffer;
     return substring;
+}
+
+const char* String::c_str() const {
+    return _str;
 }

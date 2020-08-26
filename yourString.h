@@ -27,10 +27,14 @@ public:
     bool operator >= (const String &) const;
     bool operator <= (const String &) const;
 
-    char& operator[] (const int) const;   // subscript operator
+    char operator[] (const int) const;          // subscript operator
+    char& operator[] (const int);
     operator const char* () const;              // conversion operator
+    String operator()(char *) const;            // type casting operator
 
     String operator() (int, int) const;
+
+    const char* c_str() const;
 };
 String operator+(const String&, const String&);
 #endif
