@@ -28,12 +28,12 @@ public:
     bool operator <= (const String &) const;
 
     char operator[] (const int) const;          // subscript operator
-    char& operator[] (const int);
-    operator const char* () const;              // conversion operator
+    char& operator[] (const int);               // subscript operator
+    operator const char* () const;              // conversion operator to char*
     String operator()(char *) const;            // type casting operator
+    String operator() (int, int) const;         // substring
 
-    String operator() (int, int) const;
-
+    size_t length() const;
     const char* c_str() const;
 };
 String operator+(const String&, const String&);

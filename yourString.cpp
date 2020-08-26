@@ -140,3 +140,7 @@ String String::operator() (int start, int length) const {
 const char* String::c_str() const {
     return _str;
 }
+
+size_t String::length() const {
+    return _len;
+}
